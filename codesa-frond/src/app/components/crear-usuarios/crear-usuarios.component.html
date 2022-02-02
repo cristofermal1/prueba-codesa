@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> {{titulo}} </span>
+                    <form action="" [formGroup]="usuarioForm" (ngSubmit)="agregarUsuario()">
+                        <div class="mb-3">
+                            <input type="text" class="form-control form-control-lg"
+                             placeholder="Nombre" formControlName="nombre"  *ngIf="id == null">
+                              <div class="text-danger" *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched" >
+                                 <span>El nombre del Usuario <strong>Es Obligatorio</strong></span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="input-group-text">Seleccione el estado</label>
+                                <select class="form-select" aria-label="Default select example" formControlName="activo">
+                                    <option selected>Seleccione una opcion</option>
+                                    <option value="A">Activo</option>
+                                    <option value="I">Inactivo</option>
+                                </select>
+                             <div class="text-danger" *ngIf="usuarioForm.get('activo')?.hasError('required') && usuarioForm.get('activo')?.touched" >
+                             <span>El nombre del producto <strong>Es Obligatorio</strong></span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="input-group-text">Seleccione un Rol</label>
+                            <select class="form-select" aria-label="Default select example"  formControlName="id_roles" >
+                               
+                                <option value=1>ADMINISTRADOR</option>
+                                <option value=2>AUDITOR</option>
+                                <option value=3>AUXILIAR</option>
+                            </select>
+                             <div class="text-danger" *ngIf="usuarioForm.get('id_roles')?.hasError('required') && usuarioForm.get('id_roles')?.touched">
+                             <span>El nombre del producto <strong>Es Obligatorio</strong></span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">Volver</button>
+                            <button type="submit"  class="btn btn-success btn-lg float-end">Aceptar</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
